@@ -5,38 +5,38 @@
 // The total number of months included in the dataset.
 // finances.length
 
-// The net total amount of Profit / Losses over the entire period.
-// Need a variable for Profits/Losses
-// Need to be able to compare the data for the loop that we're on to the data from the previous loop
-// Need variables for current & previous once we start the loop
-// Need an if statement to make sure we're on at least month 2 (array index 1) before starting to figure profits & losses
+// todo: The net total amount of Profit / Losses over the entire period.
+// todo: Need a variable for Profits/Losses
+// todo: to be able to compare the data for the loop that we're on to the data from the previous loop
+// todo: variables for current & previous once we start the loop
+// todo: Need an if statement to make sure we're on at least month 2 (array index 1) before starting to figure profits & losses
 
-// The average of the changes in Profit / Losses over the entire period.
-// Need a variable to track the average change
-// That will make use of the current & previous variables we set up before
-// You will need to track what the total change in Profit / Losses are from month to month and then find the average.
-// (Total / (Number of months - 1))
+// todo: The average of the changes in Profit / Losses over the entire period.
+// todo: Need a variable to track the average change
+// todo: That will make use of the current & previous variables we set up before
+// todo: You will need to track what the total change in Profit / Losses are from month to month and then find the average.
+// todo: (Total / (Number of months - 1))
 
-// The greatest increase in Profit / Losses(date and amount) over the entire period.
-// Need a variable for the greatest increase
-// On each iteration, compare the current change in profits/losses to what's currently stored
-// If the change is more, replace what's currently stored in the variable
+// todo: The greatest increase in Profit / Losses(date and amount) over the entire period.
+// todo: Need a variable for the greatest increase
+// todo: On each iteration, compare the current change in profits/losses to what's currently stored
+// todo: If the change is more, replace what's currently stored in the variable
 
-// The greatest decrease in Profit / Losses(date and amount) over the entire period.
-// Need a variable for the greatest decrease
-// On each iteration, compare the current change in profits/losses to what's currently stored
-// If the loss is greater, replace what's currently stored in the variable
+// todo: The greatest decrease in Profit / Losses(date and amount) over the entire period.
+// todo: Need a variable for the greatest decrease
+// todo: On each iteration, compare the current change in profits/losses to what's currently stored
+// todo: If the loss is greater, replace what's currently stored in the variable
 
 // variables:
 // total number of months
-// rolling total of profits
-// greatest increase (month & amt)
-// greatest loss (month & amt)
-// average of the changes
+// todo: rolling total of profits
+// todo: greatest increase (month & amt)
+// todo: greatest loss (month & amt)
+// todo: average of the changes
 
 // variables declared inside the loop:
-// current data point
-// previous data point
+// todo: current data point
+// todo: previous data point
 
 var finances = [
   ['Jan-2010', 867884],
@@ -132,3 +132,13 @@ var finances = [
 var totalMonths = finances.length;
 
 console.log(`${totalMonths} total months`);
+
+// The net total amount of Profit / Losses over the entire period.
+
+var totalProfits = 0;
+
+for (let i = 0; i < finances.length; i++) {
+  totalProfits += finances[i][1];
+}
+
+console.log(`The Total profits over the entire period are £${totalProfits}`);
