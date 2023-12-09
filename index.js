@@ -131,16 +131,15 @@ var finances = [
 
 var totalMonths = finances.length;
 
-// The net total amount of Profit / Losses over the entire period.
+// Need a variable for Profits/Losses
 
 var totalProfits = 0;
+
+// The net total amount of Profit / Losses over the entire period.
 
 for (let i = 0; i < totalMonths; i++) {
   totalProfits += finances[i][1];
 }
-
-// to be able to compare the data for the loop that we're on to the data from the previous loop
-// variables for current & previous once we start the loop
 
 var totalDifference = 0;
 
@@ -152,17 +151,22 @@ var greatestIncreaseMonth;
 var greatestDecrease = 0;
 var greatestDecreaseMonth;
 
+// to be able to compare the data for the loop that we're on to the data from the previous loop
+
+
 for (let j = 1; j < totalMonths; j++) {
+
+  // variables for current & previous once we start the loop
   var currentMonth = finances[j][0];
   var PreviousMonth = finances[j - 1][0];
   var currentProfitLoss = finances[j][1];
   var previousProfitLoss = finances[j - 1][1];
-  var currentDataPoint = finances[j];
   var difference = currentProfitLoss - previousProfitLoss;
   totalDifference += difference;
-  // console.log(`The difference between ${currentMonth} and ${PreviousMonth}:`);
 
   // The greatest increase in Profit / Losses(date and amount) over the entire period.
+
+  // On each iteration, compare the current change in profits/losses to what's currently stored
 
   if (difference > greatestIncrease) {
     // If the change is more, replace what's currently stored in the variable
@@ -172,6 +176,8 @@ for (let j = 1; j < totalMonths; j++) {
 
   // The greatest decrease in Profit / Losses(date and amount) over the entire period.
 
+  //  On each iteration, compare the current change in profits/losses to what's currently stored
+
   if (difference < greatestDecrease) {
     //  If the loss is greater, replace what's currently stored in the variable
     greatestDecrease = difference;
@@ -179,7 +185,6 @@ for (let j = 1; j < totalMonths; j++) {
   }
 
 }
-
 
 // Need a variable to track the average change
 
@@ -190,8 +195,6 @@ var averageDifference;
 averageDifference = (totalDifference / totalMonths - 1).toFixed(2);
 
 // The average of the changes in Profit / Losses over the entire period. 
-
-
 
 // End Result 
 
