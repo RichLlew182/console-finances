@@ -8,7 +8,7 @@
 // The net total amount of Profit / Losses over the entire period.
 // Need a variable for Profits/Losses
 // todo: to be able to compare the data for the loop that we're on to the data from the previous loop
-// todo: variables for current & previous once we start the loop
+// variables for current & previous once we start the loop
 // todo: Need an if statement to make sure we're on at least month 2 (array index 1) before starting to figure profits & losses
 
 // todo: The average of the changes in Profit / Losses over the entire period.
@@ -141,14 +141,22 @@ for (let i = 0; i < finances.length; i++) {
   totalProfits += finances[i][1];
 }
 
+var averageProfits = totalProfits / finances.length;
+console.log(`The Average Profit/Loss is ${averageProfits}`)
+
 console.log(`The Total profits over the entire period are £${totalProfits}`);
 
 // todo: to be able to compare the data for the loop that we're on to the data from the previous loop
 // variables for current & previous once we start the loop
 
 for (let j = 1; j < finances.length; j++) {
+  var currentMonth = finances[j][0];
+  var PreviousMonth = finances[j - 1][0];
   var currentDataPoint = finances[j][1];
   var previousDataPoint = finances[j - 1][1];
-  console.log(`Current Data = ${currentDataPoint}`);
-  console.log(`Previous data = ${previousDataPoint}; `)
+  var difference = currentDataPoint - previousDataPoint;
+  var averageDifference = Math.trunc(difference / finances.length);
+  console.log(`Current Data = ${currentMonth} : ${currentDataPoint}`);
+  console.log(`Previous data = ${PreviousMonth} : ${previousDataPoint}`);
+  console.log(`The difference between ${currentMonth} and ${PreviousMonth} is ${difference}`);
 }
