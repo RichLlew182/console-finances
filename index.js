@@ -170,9 +170,15 @@ for (let j = 1; j < totalMonths; j++) {
     greatestIncreaseMonth = currentMonth;
   }
 
+  if (difference < greatestDecrease) {
+    greatestDecrease = difference;
+    greatestDecreaseMonth = currentMonth;
+  }
+
 }
 
 console.log(`The greatest Increase was ${greatestIncreaseMonth} ${greatestIncrease}`);
+console.log(`The greatest Decrease was ${greatestDecreaseMonth} ${greatestDecrease}`);
 
 var averageDifference = (totalDifference / totalMonths - 1).toFixed(2);
 
@@ -190,4 +196,4 @@ Total Months: ${totalMonths}
 Total: $${totalProfits}
 Average Change: ${averageDifference}
 Greatest Increase in Profits/Losses: ${greatestIncreaseMonth} ($${greatestIncrease})
-Greatest Decrease in Profits/Losses: `)
+Greatest Decrease in Profits/Losses: ${greatestDecreaseMonth} ($${greatestDecrease})`)
