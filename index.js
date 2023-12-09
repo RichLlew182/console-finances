@@ -157,13 +157,14 @@ for (let j = 1; j < finances.length; j++) {
   var currentDataPoint = finances[j][1];
   var previousDataPoint = finances[j - 1][1];
   var difference = currentDataPoint - previousDataPoint;
-  totalDifference += Math.abs(difference);
-  console.log(`Current Data = ${currentMonth} : ${currentDataPoint}`);
-  console.log(`Previous data = ${PreviousMonth} : ${previousDataPoint}`);
+  totalDifference += difference;
+  // console.log(`Current Data = ${currentMonth} : ${currentDataPoint}`);
+  // console.log(`Previous data = ${PreviousMonth} : ${previousDataPoint}`);
   console.log(`The difference between ${currentMonth} and ${PreviousMonth} is ${difference}`);
 }
 
-var averageDifference = Math.trunc(totalDifference / finances.length);
+var averageDifference = (totalDifference / finances.length);
+averageDifference = averageDifference.toFixed(2);
 
 // The average of the changes in Profit / Losses over the entire period. 
 
