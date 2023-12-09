@@ -11,11 +11,11 @@
 // variables for current & previous once we start the loop
 // Need an if statement to make sure we're on at least month 2 (array index 1) before starting to figure profits & losses
 
-// todo: The average of the changes in Profit / Losses over the entire period.
-// todo: Need a variable to track the average change
-// todo: That will make use of the current & previous variables we set up before
-// todo: You will need to track what the total change in Profit / Losses are from month to month and then find the average.
-// todo: (Total / (Number of months - 1))
+// The average of the changes in Profit / Losses over the entire period.
+// Need a variable to track the average change
+// That will make use of the current & previous variables we set up before
+// You will need to track what the total change in Profit / Losses are from month to month and then find the average.
+// (Total / (Number of months - 1))
 
 // todo: The greatest increase in Profit / Losses(date and amount) over the entire period.
 // todo: Need a variable for the greatest increase
@@ -137,7 +137,7 @@ console.log(`${totalMonths} total months`);
 
 var totalProfits = 0;
 
-for (let i = 0; i < finances.length; i++) {
+for (let i = 0; i < totalMonths; i++) {
   totalProfits += finances[i][1];
 }
 
@@ -150,22 +150,44 @@ console.log(`The Total profits over the entire period are £${totalProfits}`);
 // variables for current & previous once we start the loop
 
 var totalDifference = 0;
+var greatestIncrease = 0;
+var greatestDecrease = 0;
+var greatestIncreaseMonth;
+var greatestDecreaseMonth;
 
-for (let j = 1; j < finances.length; j++) {
+for (let j = 1; j < totalMonths; j++) {
   var currentMonth = finances[j][0];
   var PreviousMonth = finances[j - 1][0];
-  var currentDataPoint = finances[j][1];
-  var previousDataPoint = finances[j - 1][1];
-  var difference = currentDataPoint - previousDataPoint;
+  var currentProfitLoss = finances[j][1];
+  var previousProfitLoss = finances[j - 1][1];
+  var currentDataPoint = finances[j];
+  var difference = currentProfitLoss - previousProfitLoss;
   totalDifference += difference;
-  // console.log(`Current Data = ${currentMonth} : ${currentDataPoint}`);
-  // console.log(`Previous data = ${PreviousMonth} : ${previousDataPoint}`);
-  console.log(`The difference between ${currentMonth} and ${PreviousMonth} is ${difference}`);
+  console.log(`The difference between ${currentMonth} and ${PreviousMonth}:`);
+
+  if (difference > greatestIncrease) {
+    greatestIncrease = difference;
+    greatestIncreaseMonth = currentMonth;
+  }
+
 }
 
-var averageDifference = (totalDifference / finances.length);
-averageDifference = averageDifference.toFixed(2);
+console.log(`The greatest Increase was ${greatestIncreaseMonth} ${greatestIncrease}`);
+
+var averageDifference = (totalDifference / totalMonths - 1).toFixed(2);
 
 // The average of the changes in Profit / Losses over the entire period. 
 
 console.log(`The average difference between the numbers is ${averageDifference}`);
+
+
+// End Result 
+
+console.log(`
+Financial Analysis 
+----------------
+Total Months: ${totalMonths}
+Total: $${totalProfits}
+Average Change: ${averageDifference}
+Greatest Increase in Profits/Losses: ${greatestIncreaseMonth} ($${greatestIncrease})
+Greatest Decrease in Profits/Losses: `)
