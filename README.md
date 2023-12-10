@@ -71,6 +71,7 @@ N/A
 <p>To use this project, please open the website in Chrome and then use developer tools to view the messages being logged in the console</p>
 <p>Once dev tools is open, navigate to the Console tab at the top of the tools (you may need to click the double arrows first to see this option).</p>
 <p>Users should now see the financial analysis being logged to the console.</p>
+<p>Users can also inspect the JavaScript source file by going to the Sources tab in developer tools and then the index.js file.</p>
 
 
 <!-- LICENSE -->
