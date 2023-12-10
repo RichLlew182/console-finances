@@ -7,8 +7,8 @@
 
 // The net total amount of Profit / Losses over the entire period.
 // Need a variable for Profits/Losses
-// Need to be able to compare the data for the loop that we're on to the data from the previous loop
-// Need variables for current & previous once we start the loop
+// to be able to compare the data for the loop that we're on to the data from the previous loop
+// variables for current & previous once we start the loop
 // Need an if statement to make sure we're on at least month 2 (array index 1) before starting to figure profits & losses
 
 // The average of the changes in Profit / Losses over the entire period.
@@ -23,16 +23,16 @@
 // If the change is more, replace what's currently stored in the variable
 
 // The greatest decrease in Profit / Losses(date and amount) over the entire period.
-// Need a variable for the greatest decrease
-// On each iteration, compare the current change in profits/losses to what's currently stored
-// If the loss is greater, replace what's currently stored in the variable
+//  Need a variable for the greatest decrease
+//  On each iteration, compare the current change in profits/losses to what's currently stored
+//  If the loss is greater, replace what's currently stored in the variable
 
 // variables:
 // total number of months
 // rolling total of profits
-// greatest increase (month & amt)
-// greatest loss (month & amt)
-// average of the changes
+//  greatest increase (month & amt)
+//  greatest loss (month & amt)
+//  average of the changes
 
 // variables declared inside the loop:
 // current data point
@@ -126,3 +126,83 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+// The total number of months included in the dataset.
+
+var totalMonths = finances.length;
+
+// Need a variable for Profits/Losses
+
+var totalProfits = 0;
+
+// The net total amount of Profit / Losses over the entire period.
+
+for (let i = 0; i < totalMonths; i++) {
+  totalProfits += finances[i][1];
+}
+
+var totalDifference = 0;
+
+// Need a variable for the greatest increase
+var greatestIncrease = 0;
+var greatestIncreaseMonth;
+
+//  Need a variable for the greatest decrease
+var greatestDecrease = 0;
+var greatestDecreaseMonth;
+
+// to be able to compare the data for the loop that we're on to the data from the previous loop
+
+
+for (let j = 1; j < totalMonths; j++) {
+
+  // variables for current & previous once we start the loop
+  var currentMonth = finances[j][0];
+  var PreviousMonth = finances[j - 1][0];
+  var currentProfitLoss = finances[j][1];
+  var previousProfitLoss = finances[j - 1][1];
+  var difference = currentProfitLoss - previousProfitLoss;
+  totalDifference += difference;
+
+  // The greatest increase in Profit / Losses(date and amount) over the entire period.
+
+  // On each iteration, compare the current change in profits/losses to what's currently stored
+
+  if (difference > greatestIncrease) {
+    // If the change is more, replace what's currently stored in the variable
+    greatestIncrease = difference;
+    greatestIncreaseMonth = currentMonth;
+  }
+
+  // The greatest decrease in Profit / Losses(date and amount) over the entire period.
+
+  //  On each iteration, compare the current change in profits/losses to what's currently stored
+
+  if (difference < greatestDecrease) {
+    //  If the loss is greater, replace what's currently stored in the variable
+    greatestDecrease = difference;
+    greatestDecreaseMonth = currentMonth;
+  }
+
+}
+
+// Need a variable to track the average change
+
+var averageDifference;
+
+// The average of the changes in Profit / Losses over the entire period. 
+
+averageDifference = (totalDifference / totalMonths - 1).toFixed(2);
+
+// The average of the changes in Profit / Losses over the entire period. 
+
+// End Result 
+
+console.log(`
+Financial Analysis 
+----------------
+Total Months: ${totalMonths}
+Total: $${totalProfits}
+Average Change: ${averageDifference}
+Greatest Increase in Profits/Losses: ${greatestIncreaseMonth} ($${greatestIncrease})
+Greatest Decrease in Profits/Losses: ${greatestDecreaseMonth} ($${greatestDecrease})`)
