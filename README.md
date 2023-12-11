@@ -29,7 +29,7 @@ Unit 4 Challenge of EDX Bootcamp in Front End Web Development
 ## Description
 
 <a href="https://richllew182.github.io/console-finances/">
-    <img src="./Images/console-finances-screenshot.png" alt="Richard Llewellyn Console Finances Screenshot">
+    <img src="./Images/console-finance-screenshot.png" alt="Richard Llewellyn Console Finances Screenshot">
   </a>
 
 <br>
