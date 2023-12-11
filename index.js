@@ -192,7 +192,7 @@ var averageDifference;
 
 // The average of the changes in Profit / Losses over the entire period. 
 
-averageDifference = (totalDifference / totalMonths - 1).toFixed(2);
+averageDifference = (totalDifference / (totalMonths - 1)).toFixed(2);
 
 // The average of the changes in Profit / Losses over the entire period. 
 
